@@ -1,24 +1,24 @@
 <?php
-    class Pakaian{
+    class Barang{
         public $jenis;
-        private $harga;
         protected $ukuran;
+        protected $harga;
         
-        function __construct($harga,$ukuran){
+        public function __construct($harga,$ukuran){
             $this->harga = $harga;
             $this->ukuran = $ukuran;
         }
 
         function __destruct(){
-            echo "{$this->jenis} dengan ukuran {$this->ukuran} sangat nyaman dipakai";
+            echo "{$this->jenis} dengan ukuran {$this->ukuran}";
         }
 
-        function setPakaian($jenis){
+        function setJenis($jenis){
             $this->jenis = $jenis;
         }
 
-        function getPakaian(){
-            return "Pakaian telah disediakan";
+        function getJenis(){
+            return "Barang telah disediakan: ";
         }
 
         function describe(){
@@ -27,67 +27,47 @@
    
     }
 
-    class Baju extends Pakaian{
-        private $merk;
+    class Televisi extends Barang{
+        public $merk;
+        protected $color;
+        private $modelTelevisi;
 
-        function __construct($harga,$ukuran){
+        public function __construct($harga,$ukuran){
             parent:: __construct($harga,$ukuran);
         }
 
         function __destruct(){
-            echo "Baju {$this->merk} dengan ukuran {$this->ukuran} sangat nyaman dipakai.<br>";
+            echo "Televisi {$this->merk} dengan ukuran {$this->ukuran} sangat nyaman dipakai.<br>";
         }
 
-        function setBaju($jenis, $merk){
+        function setJenisTelevisi($jenis , $merk , $color, $modelTelevisi){
             $this->jenis = $jenis;
             $this->merk = $merk;
+            $this->color = $color;
+            $this->model = $modelTelevisi;
         }
 
-        function getBaju(){
-            return "Baju Telah disediakan";
-        }
-    }
-    
-    class Sepatu extends Pakaian{
-        private $merk;
-
-        function __construct($harga,$ukuran){
-            parent:: __construct($harga,$ukuran);
+        function getJenisTelevisi(){
+            return "Jenis Telah disediakan: ";
         }
 
-        function __destruct(){
-            echo "Sepatu {$this->merk} dengan ukuran {$this->ukuran} sangat nyaman dipakai.<br>";
-        }
-
-        function setSepatu($jenis, $merk){
-            $this->jenis = $jenis;
-            $this->merk = $merk;
-        }
-
-        function getSepatu(){
-            return "Sepatu Telah disediakan";
+        function describeTelevisi(){
+            echo ("<br>Jenis: {$this->jenis}<br>Harganya: {$this->harga}<br>ukuran: {$this->ukuran}<br>merk: {$this->merk}<br>warna: {$this->color}<br>");
         }
     }
     
     
-    $pakaian = new Pakaian(100000,"XL");    
-    $pakaian->setPakaian("Pakaian Seragam");
-    echo "{$pakaian->getPakaian()}";
-    $pakaian->describe();
+    $Barang = new Barang(100000,"XL");    
+    $Barang->setJenis("Barang Seragam");
+    echo "{$Barang->getJenis()}";
+    $Barang->describe();
 
     echo"<br>";
 
-    $baju = new Baju (200000,"L ");
-    $baju->setBaju("Baju Tidur","Polo");
-    echo "{$baju->getBaju()}";
-    $baju->describe();
-
-    echo "<br>";
-
-    $Sepatu = new Sepatu (300000,"42");
-    $Sepatu->setSepatu("Sepatu Olahraga","Nike");
-    echo "{$Sepatu->getSepatu()}";
-    $Sepatu->describe();
+    $Televisi = new Televisi (2000000,"32inc ");
+    $Televisi->setJenisTelevisi("Televisi LCD","Semsang","red","amoled");
+    echo "{$Televisi->getJenisTelevisi()}";
+    $Televisi->describeTelevisi();
 
     echo "<br>";
 ?>
