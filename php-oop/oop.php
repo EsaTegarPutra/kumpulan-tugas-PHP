@@ -57,8 +57,8 @@
     }
     
     
-    $Barang = new Barang(100000,"XL");    
-    $Barang->setJenis("Barang Seragam");
+    $Barang = new Barang(100000,"100 kg");    
+    $Barang->setJenis("Barang Rumah");
     echo "{$Barang->getJenis()}";
     $Barang->describe();
 
