@@ -52,7 +52,7 @@
         }
 
         function describeTelevisi(){
-            echo ("<br>Jenis: {$this->jenis}<br>Harganya: {$this->harga}<br>ukuran: {$this->ukuran}<br>merk: {$this->merk}<br>warna: {$this->color}<br>");
+            echo ("<br>Jenis: {$this->jenis}<br>Harganya: {$this->harga}<br>ukuran: {$this->ukuran}<br>merk: {$this->merk}<br>warna: {$this->color}<br>model: {$this->model}<br>");
         }
     }
     
